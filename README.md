@@ -1,1 +1,1 @@
-[uedi-ratebeer.herokuapp.com/breweries](https://uedi-ratebeer.herokuapp.com/breweries)
+[uedi-ratebeer.herokuapp.com](https://uedi-ratebeer.herokuapp.com)
