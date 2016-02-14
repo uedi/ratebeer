@@ -13,6 +13,15 @@
 <% end %>
 </p>
 
+<% if @user.favorite_style %>
+  <p>favorite style: <%= @user.favorite_style %> </p>
+<% end %>
+
+<% if @user.favorite_brewery %>
+  <p>favorite brewery: <%= link_to @user.favorite_brewery.name, @user.favorite_brewery %> </p>
+<% end %>
+
+
 <% if @user.ratings.count == 0 %>
   <p>hasn't made any ratings yet<p>  
 <% else %>
