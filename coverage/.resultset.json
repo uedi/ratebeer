@@ -41,6 +41,31 @@
         1,
         null
       ],
+      "/home/tomi/ruby/ratebeer/app/models/beer.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/home/tomi/ruby/ratebeer/app/models/concerns/rating_average.rb": [
+        1,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null
+      ],
       "/home/tomi/ruby/ratebeer/app/models/brewery.rb": [
         1,
         1,
@@ -53,8 +78,8 @@
         1,
         null,
         1,
-        23,
-        0,
+        50,
+        2,
         null,
         null,
         null,
@@ -68,15 +93,6 @@
         null,
         null,
         null,
-        null,
-        null
-      ],
-      "/home/tomi/ruby/ratebeer/app/models/concerns/rating_average.rb": [
-        1,
-        1,
-        null,
-        1,
-        7,
         null,
         null
       ],
@@ -96,18 +112,18 @@
         null,
         null,
         1,
-        0,
-        0,
+        3,
+        2,
         null,
         null,
         1,
-        21,
-        26,
+        24,
+        31,
         null,
         null,
         1,
-        27,
-        51,
+        30,
+        56,
         null,
         null,
         null
@@ -143,8 +159,12 @@
         1,
         null,
         1,
-        106,
-        77,
+        129,
+        84,
+        null,
+        null,
+        1,
+        4,
         null,
         null,
         null
@@ -257,6 +277,7 @@
         1,
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -333,22 +354,6 @@
         null,
         1,
         2,
-        null,
-        null
-      ],
-      "/home/tomi/ruby/ratebeer/app/models/beer.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        2,
-        null,
         null,
         null
       ],
@@ -428,12 +433,6 @@
         0,
         null,
         null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
         null
       ],
       "/home/tomi/ruby/ratebeer/app/controllers/ratings_controller.rb": [
@@ -470,6 +469,7 @@
         null
       ],
       "/home/tomi/ruby/ratebeer/app/controllers/beer_clubs_controller.rb": [
+        0,
         0,
         0,
         0,
@@ -629,6 +629,6 @@
         0
       ]
     },
-    "timestamp": 1455463569
+    "timestamp": 1455472793
   }
 }
