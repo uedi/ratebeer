@@ -8,7 +8,8 @@ module Helpers
   end
   
   def create_beer_with_rating(user, score)
-    create_beer_with_rating_and_style(user, score, "Lager")
+    style = Style.create(name:"Lager", description:"Lager...")
+    create_beer_with_rating_and_style(user, score, style)
   end
   
   def create_beer_with_rating_and_style(user, score, style)

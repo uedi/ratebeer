@@ -5,6 +5,7 @@ include Helpers
 describe "New beer" do
 
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
+  let!(:style) { FactoryGirl.create :style, name:"Lager", description:"xxx" }
   let!(:user) { FactoryGirl.create :user }
   
   before :each do

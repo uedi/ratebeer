@@ -85,16 +85,19 @@ RSpec.describe User, type: :model do
     end
     
     it "is the only style if only one rating" do
-      beer = create_beer_with_rating_and_style(user, 10, "Weizen")
-      expect(user.favorite_style).to eq(beer.style)
+      style = Style.create(name:"Weizen", description:"ddd...")
+      beer = create_beer_with_rating_and_style(user, 10, style)
+      expect(user.favorite_style).to eq(style.name)
     end
     
     it "is the one with best average score" do
-      create_beer_with_rating_and_style(user, 10, "Weizen")
-      create_beer_with_rating_and_style(user, 30, "Weizen")
-      create_beer_with_rating_and_style(user, 20, "Weizen")
-      best = create_beer_with_rating_and_style(user, 21, "IPA")
-      expect(user.favorite_style).to eq(best.style)
+      weizen = Style.create(name:"Weizen", description:"ddd...")
+      create_beer_with_rating_and_style(user, 10, weizen)
+      create_beer_with_rating_and_style(user, 30, weizen)
+      create_beer_with_rating_and_style(user, 20, weizen)
+      ipa = Style.create(name:"IPA", description:"ddd...")
+      best = create_beer_with_rating_and_style(user, 21, ipa)
+      expect(user.favorite_style).to eq(ipa.name)
     end
   end # end of "favorite style"
   

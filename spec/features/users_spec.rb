@@ -38,11 +38,13 @@ describe "User" do
     end
     
     it "has favorite style" do
-      create_beer_with_rating_and_style(user, 20, "Weizen")
-      create_beer_with_rating_and_style(user, 24, "Weizen")
-      create_beer_with_rating_and_style(user, 21, "IPA")
-      create_beer_with_rating_and_style(user, 22, "IPA")
-      create_beer_with_rating_and_style(user, 22, "IPA")
+      weizen = Style.create(name:"Weizen", description:"ddd...")
+      ipa = Style.create(name:"IPA", description:"ddd...")
+      create_beer_with_rating_and_style(user, 20, weizen)
+      create_beer_with_rating_and_style(user, 24, weizen)
+      create_beer_with_rating_and_style(user, 21, ipa)
+      create_beer_with_rating_and_style(user, 22, ipa)
+      create_beer_with_rating_and_style(user, 22, ipa)
       visit user_path(user)
       expect(page).to have_content 'favorite style: Weizen'
     end

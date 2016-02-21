@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :styles
   resources :memberships
   resources :beer_clubs
   resources :users
@@ -14,6 +15,12 @@ Rails.application.routes.draw do
   
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
+  
+  #get 'places', to: 'places#index'
+  resources :places, only:[:index, :show]
+  post 'places', to: 'places#search'
+  
+  delete 'memberships', to: 'memberships#destroy'
   
   #get 'ratings', to: 'ratings#index'
   #get 'ratings/new', to:'ratings#new'
