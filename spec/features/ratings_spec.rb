@@ -27,14 +27,14 @@ describe "Ratings" do
     expect(beer1.average_rating).to eq(15.0)
   end
   
-  it "are listed at ratings page" do
-    create_ratings
-    visit ratings_path
-    expect(page).to have_content 'Number of ratings: 3'
-    expect(page).to have_content 'iso 3 10 Pekka'
-    expect(page).to have_content 'Karhu 20 Pekka'
-    expect(page).to have_content 'Karhu 21 Pekka2'
-  end
+  #it "are listed at ratings page" do
+  #  create_ratings
+  #  visit ratings_path
+  #  expect(page).to have_content 'Number of ratings: 3'
+  #  expect(page).to have_content 'iso 3 10 Pekka'
+  #  expect(page).to have_content 'Karhu 20 Pekka'
+  #  expect(page).to have_content 'Karhu 21 Pekka2'
+  #end
   
   it "made by user are listed at their page" do
     create_ratings

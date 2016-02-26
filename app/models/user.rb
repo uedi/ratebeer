@@ -26,5 +26,9 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     beers.group(:brewery).average(:score).max_by{ |name, score| score }.first
   end
+  
+  def self.top_raters(n)
+    User.all.sort_by{ |u| -(u.ratings.count||0) }.take(n)
+  end
                        
 end
