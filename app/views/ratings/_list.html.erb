@@ -8,11 +8,13 @@
 
   <tbody>
   <% elements.each do |element| %>
+    <% if element.average_rating > 0 %>
       <tr>
         <td><%= link_to element.name, element %></td>
         <td><%= element.average_rating %></td>
         <td></td>
       </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

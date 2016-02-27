@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2>
   <strong><%= @beer_club.name %> <%= @beer_club.city %></strong>
 </h2>
@@ -35,9 +33,8 @@
       <%= f.submit value: "end the membership", class:'btn btn-danger' %>
     <% end %>
   <% end %>
-  <br>
-  <%= link_to 'Edit', edit_beer_club_path(@beer_club), class:'btn btn-warning' %>
-  <%= link_to 'Destroy', @beer_club, class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } if current_user %>
+  
 <% end %>
-<%= link_to 'Back', beer_clubs_path, class:'btn btn-default' %>
+<br>
+<%= edit_and_destroy_buttons(@beer_club) %>
 

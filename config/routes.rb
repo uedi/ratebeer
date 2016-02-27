@@ -22,6 +22,14 @@ Rails.application.routes.draw do
   
   delete 'memberships', to: 'memberships#destroy'
   
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
+  
+  resources :users do
+    post 'toggle_banned', on: :member
+  end
+  
   #get 'ratings', to: 'ratings#index'
   #get 'ratings/new', to:'ratings#new'
   #post 'ratings', to: 'ratings#create'

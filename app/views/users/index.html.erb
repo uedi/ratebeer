@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Users</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Username</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -13,6 +12,13 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
+        <td>
+        <% if user.banned %>
+          <span class="label label-info">account frozen</span>
+        <% elsif user.admin %>
+          <span class="label label-info">admin</span>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
