@@ -1,13 +1,37 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :is_admin, only: [:destroy]
   
   # GET /breweries
   # GET /breweries.json
   def index
+    @breweries = Brewery.all
     @active_breweries = Brewery.active
-    @retired_breweries = Brewery.retired
+    @retired_breweries = Brewery.retired    
+    order = params[:order] || 'name'
+    
+    case order
+      when 'name' then
+        @active_breweries = @active_breweries.sort_by{ |b| b.name }
+        @retired_breweries = @retired_breweries.sort_by{ |b| b.name }
+       
+      when 'year' then
+        @active_breweries = @active_breweries.sort_by{ |b| b.year }
+        @retired_breweries = @retired_breweries.sort_by{ |b| b.year }
+    end
+    
+    if session[:reverse_order]
+      @active_breweries = @active_breweries.reverse
+      @retired_breweries = @retired_breweries.reverse
+      session[:reverse_order] = false
+    else
+      session[:reverse_order] = true
+    end
+    
+  end
+
+  def list
   end
 
   # GET /breweries/1

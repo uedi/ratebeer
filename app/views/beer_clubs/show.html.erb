@@ -13,13 +13,25 @@
     no members yet
   <% else %>
     <ul>
-      <% @beer_club.members.each do |m| %>
-        <li> <%= link_to m.username, m %> </li>
+      <% @beer_club.memberships.confirmed.each do |m| %>
+          <li> <%= link_to m.user.username, m.user %> </li>
       <% end %>
     </ul>
-  
   <% end %>
 </p>
+
+<% if @beer_club.memberships.unconfirmed.count != 0 and current_user and @beer_club.is_member(current_user) %>
+  <h3>Outstanding applications</h3>
+  <ul>
+    <% @beer_club.memberships.unconfirmed.each do |m| %>
+      <li> 
+        <%= link_to m.user.username, m.user %> 
+        <%= link_to 'confirm', confirm_membership_membership_path(m), method: :post, class:"btn btn-primary" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <% if current_user %>
 
   <% if not @beer_club.members.include?(current_user) %>
@@ -30,7 +42,11 @@
   <% else %>
     <%= form_for(@membership, method: "delete") do |f| %>
       <%= f.hidden_field :beer_club_id %>
-      <%= f.submit value: "end the membership", class:'btn btn-danger' %>
+      <% if @beer_club.is_member(current_user) %>
+        <%= f.submit value: "end the membership", class:'btn btn-danger' %>
+      <% else %>
+        <%= f.submit value: "cancel application", class:'btn btn-danger' %>
+      <% end %>  
     <% end %>
   <% end %>
   

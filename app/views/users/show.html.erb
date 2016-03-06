@@ -6,28 +6,51 @@
     <span class="label label-info">admin</span>
   <% end %>
 </h2>
-<p>
-<% if @user.beer_clubs.count == 0 %>
-  hasn't joined any beer club yet
-<% else %>
-  member of
-  <% @user.beer_clubs.each do |c| %>
-   <%= link_to c.name, c %>
- <% end %>
+
+<% if @user.favorite_beer %>
+  <p><strong>favorite beer: </strong><%= link_to @user.favorite_beer.name, @user.favorite_beer %> </p>
 <% end %>
-</p>
 
 <% if @user.favorite_style %>
-  <p>favorite style: <%= @user.favorite_style %> </p>
+  <p><strong>favorite style: </strong><%= @user.favorite_style %> </p>
 <% end %>
 
 <% if @user.favorite_brewery %>
-  <p>favorite brewery: <%= link_to @user.favorite_brewery.name, @user.favorite_brewery %> </p>
+  <p><strong>favorite brewery: </strong><%= link_to @user.favorite_brewery.name, @user.favorite_brewery %> </p>
+<% end %>
+
+<% if @user.beer_clubs.count == 0 %>
+  <p><strong>hasn't joined any beer club yet</strong></p>
+<% else %>
+  <h3>Beer Clubs</h3>
+  <p>
+    <% if @user.memberships.confirmed.count != 0 %>
+      member of
+      <ul>
+        <% @user.beer_clubs.each do |c| %>
+          <% if c.is_member(@user) %>
+            <li><%= link_to c.name, c %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if @user.memberships.unconfirmed.count != 0 %>
+      applied membership of
+      <ul>
+        <% @user.beer_clubs.each do |c| %>
+          <% if not c.is_member(@user) %>
+            <li><%= link_to c.name, c %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+  <p>
 <% end %>
 
 
+
 <% if @user.ratings.count == 0 %>
-  <p>hasn't made any ratings yet<p>  
+  <p><strong>hasn't made any ratings yet</strong><p>  
 <% else %>
   <p>has made <%= @user.ratings.count %> ratings, average: <%= @user.average_rating %></p>
   <h3>ratings</h3>

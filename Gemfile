@@ -29,6 +29,8 @@ gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'jquery-turbolinks'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
@@ -48,6 +50,8 @@ group :test do
   gem 'rspec-its'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :production do

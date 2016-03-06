@@ -30,6 +30,14 @@ Rails.application.routes.draw do
     post 'toggle_banned', on: :member
   end
   
+  resources :memberships do
+    post 'confirm_membership', on: :member
+  end
+  
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to:'breweries#list'
+  get 'ngbeerlist', to:'beers#nglist'
+  
   #get 'ratings', to: 'ratings#index'
   #get 'ratings/new', to:'ratings#new'
   #post 'ratings', to: 'ratings#create'
